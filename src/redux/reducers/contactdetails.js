@@ -15,7 +15,7 @@ export const ContactList=(state=initialState, action) =>{
             return obj.id === action.payload
         })}
     case actionTypes.SPINNER:
-        return {...state,showloader:true}
+        return {...state,showloader:(state.contactList.length>0 ? false : true)}
     case actionTypes.UPDATE_CONTACT_INFO:
         return Object.assign({},state,{
             contactList:state.contactList.map((ele)=>{
